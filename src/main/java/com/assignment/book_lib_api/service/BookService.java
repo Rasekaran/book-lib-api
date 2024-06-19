@@ -9,6 +9,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookService {
@@ -24,4 +25,12 @@ public class BookService {
         return this.bookRepository.findAll( Sort.by("id") );
     }
 
+    public Book getBook(int id) {
+        Optional<Book> bookOptl = this.bookRepository.findById( "" + id );
+        return bookOptl.orElse(null );
+    }
+
+    public Book addBook( Book book ) {
+        return this.bookRepository.saveAndFlush( book );
+    }
 }
