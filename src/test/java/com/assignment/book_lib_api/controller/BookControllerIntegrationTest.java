@@ -63,4 +63,30 @@ public class BookControllerIntegrationTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].name", CoreMatchers.is( books.get( 0 ).getName())))
                 .andExpect(MockMvcResultMatchers.jsonPath("$[1].name", CoreMatchers.is( books.get( 1 ).getName())));
     }
+
+    @Test
+    public void whenGetBook_thenReturnBookDetails()
+            throws Exception {
+
+        Book book = new Book( 2, "book1", "isbn1",  new Author( 1, "John", "Cena", null ));
+
+        Mockito.when(service.getBook( 2 )).thenReturn( book );
+
+        mvc.perform( MockMvcRequestBuilders.get("/book/2")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("name", CoreMatchers.is(book.getName())));
+    }
+
+    @Test
+    public void whenGetBookWithNonExisting_thenReturnNotFoundStatus()
+            throws Exception {
+
+
+        Mockito.when(service.getBook( 10 )).thenReturn( null );
+
+        mvc.perform( MockMvcRequestBuilders.get("/book/10")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isNotFound());
+    }
 }
