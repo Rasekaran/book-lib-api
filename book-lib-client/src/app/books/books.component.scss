@@ -1,3 +1,21 @@
 .mat-mdc-header-row {
     font-weight: bold;
 }
+.new-container {
+    width: 100%;
+    height: 40px;
+}
+.new {
+    margin: 10px;
+    float: right;
+    // color: #99C3FF;
+}
+
+.link {
+    cursor: pointer;
+}
+  
+.link:hover {
+    color: #99C3FF;
+    // text-decoration: none;
+}

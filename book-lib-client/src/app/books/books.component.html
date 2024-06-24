@@ -1,4 +1,9 @@
 <!-- <div *ngIf="getBooks() | async"> -->
+<div class="new-container">
+    <div class="new link" (click)="create()">
+        <a>+ Add New</a>
+    </div>
+</div>
 <mat-table class="lessons-table mat-elevation-z8" [dataSource]="( books | async ) || []">
 
     <ng-container matColumnDef="id">
@@ -9,7 +14,7 @@
     <ng-container matColumnDef="name">
         <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
         <mat-cell class="name-cell"
-                  *matCellDef="let book"><a (click)="showPopup( book.id )">{{book.name}}</a></mat-cell>
+                  *matCellDef="let book"><a class="link" (click)="viewBook( book.id )">{{book.name}}</a></mat-cell>
 
     </ng-container>
 

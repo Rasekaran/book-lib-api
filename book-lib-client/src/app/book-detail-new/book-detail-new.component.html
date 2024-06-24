@@ -1,0 +1,8 @@
+<p>New Book Details</p>
+<app-book-detail
+    [authors] = "authors | async"
+    [isEdit] = "true"
+    [buttonName] = "'Create'"
+    (onUpdate) = "onSubmit( $event )"
+>
+</app-book-detail>

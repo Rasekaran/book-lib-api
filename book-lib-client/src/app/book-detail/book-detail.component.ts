@@ -25,8 +25,11 @@ export class BookDetailComponent implements OnChanges {
   @Input()
   public isEdit: boolean = true;
 
+  @Input()
+  public buttonName: string;
+
   @Output()
-  public bookEventEmiter: EventEmitter<Book> = new EventEmitter();
+  public onUpdate: EventEmitter<Book> = new EventEmitter();
 
   constructor( protected formBuilder: FormBuilder ) {
     this.bookForm = this.formBuilder.group({
@@ -35,6 +38,7 @@ export class BookDetailComponent implements OnChanges {
       isbn: [ ],
       author: [ ]
     });
+    this.bookForm.controls.id.disable();
   }
   ngOnChanges(changes: SimpleChanges): void {
     if( this.bookDetails ) {
@@ -49,6 +53,6 @@ export class BookDetailComponent implements OnChanges {
 
   public onSubmit() {
     const formValues = this.bookForm.getRawValue();
-    this.bookEventEmiter.next( formValues );
+    this.onUpdate.next( formValues );
   }
 }

@@ -1,9 +1,9 @@
-<p>Book Details View</p>
+<p>Update Book Details</p>
 <app-book-detail
     [bookDetails] = "bookDetails | async"
     [authors] = "authors | async"
-    [isEdit] = "false"
-    [buttonName] = "'Edit'"
+    [isEdit] = "true"
+    [buttonName] = "'Update'"
     (onUpdate) = "onSubmit( $event )"
 >
 </app-book-detail>

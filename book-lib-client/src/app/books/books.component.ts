@@ -37,7 +37,11 @@ export class BooksComponent implements OnInit {
     ).subscribe());
   }
 
-  public showPopup( id: string ) {
+  public viewBook( id: string ) {
     this.router.navigate(['book/', id]);
+  }
+
+  public create() {
+    this.router.navigate([ 'book/new' ]);
   }
 }
