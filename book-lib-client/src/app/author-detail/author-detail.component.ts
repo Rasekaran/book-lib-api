@@ -46,7 +46,11 @@ export class AuthorDetailComponent {
   public onSubmit() {
     if( !this.validateForm || this.authorForm.valid ) {
       const formValues = this.authorForm.getRawValue();
-      this.onUpdate.next( formValues );
+      this.onUpdate.next({
+        id: formValues.id,
+        firstName: formValues.fName,
+        lastName: formValues.lName
+      });
     }
   }
 }
