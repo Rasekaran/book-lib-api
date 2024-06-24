@@ -4,14 +4,10 @@ import { MatTableModule } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
 import { BehaviorSubject, Subscription, map, tap } from 'rxjs';
 import { Book } from '../model/book';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-books',
-  // standalone: true,
-  // imports: [
-  //   MatTableModule,
-  //   CommonModule
-  // ],
   templateUrl: './books.component.html',
   styleUrl: './books.component.scss'
 })
@@ -21,7 +17,9 @@ export class BooksComponent implements OnInit {
   displayedColumns = [ 'id', 'name' ];
   protected subs: Subscription[] = [];
 
-  constructor( protected apiService: RestAPIService ) {
+  constructor(
+    protected apiService: RestAPIService,
+    private router: Router ) {
     this.books = new BehaviorSubject([] as Book[]);
   }
 
@@ -37,5 +35,9 @@ export class BooksComponent implements OnInit {
       map( books => books || [] ),
       tap( bs => this.books.next( bs as Book[] ) )
     ).subscribe());
+  }
+
+  public showPopup( id: string ) {
+    this.router.navigate(['book/', id]);
   }
 }

@@ -7,18 +7,33 @@ import { appRoutes } from './app.routes';                  // If your appConfig 
 import { MatTableModule } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
 import { BooksComponent } from './books/books.component';
+import { BookDetailComponent } from './book-detail/book-detail.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BooksComponent
+    BooksComponent,
+    BookDetailComponent
     // Add other components, directives, pipes here
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     MatTableModule,
-    CommonModule
+    MatFormFieldModule,
+    MatSelectModule,
+    CommonModule,
+    BrowserAnimationsModule,// why
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    FormsModule
     // Import other modules here
   ],
   providers: [
