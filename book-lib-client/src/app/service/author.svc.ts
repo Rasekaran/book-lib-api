@@ -23,6 +23,6 @@ export class AuthorService {
     }
 
     public createAuthor( author: Author ): Observable<Author> {
-        return this.restAPIService.post( 'auhort', author );
+        return this.restAPIService.post( 'author', author );
     }
 }
