@@ -13,12 +13,14 @@ import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BookDetailViewComponent } from './book-detail-view/book-detail-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BooksComponent,
-    BookDetailComponent
+    BookDetailComponent,
+    BookDetailViewComponent
     // Add other components, directives, pipes here
   ],
   imports: [

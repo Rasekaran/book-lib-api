@@ -1,6 +1,6 @@
 <p>Book Details</p>
 
-<div *ngIf="( bookDetails | async ) as book">  
+<div>  
     <form id="form" [formGroup]="bookForm" (ngSubmit)="onSubmit()">
         <mat-form-field appearance = "outline" floatLabel="always">
         <mat-label> ID </mat-label>
@@ -20,7 +20,7 @@
         <mat-form-field appearance = "outline" floatLabel="always">
             <mat-label> Author </mat-label>
             <mat-select formControlName="author">
-                <mat-option *ngFor="let author of ( getAuthors( book.author ) | async )" [value] = "author.id"> {{author.firstName + ' ' + author.lastName}} </mat-option>
+                <mat-option *ngFor="let author of authors" [value] = "author.id"> {{author.firstName + ' ' + author.lastName}} </mat-option>
             </mat-select>
         </mat-form-field>
         <br>
