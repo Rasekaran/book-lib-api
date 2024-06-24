@@ -30,7 +30,12 @@ public class AuthorController {
     }
 
     @PostMapping("author")
-    public Author addBook(@RequestBody Author author ) {
+    public Author addAuthor(@RequestBody Author author ) {
         return this.authorService.addAuthor( author );
+    }
+
+    @PutMapping("author/{id}")
+    public void updateBook( @PathVariable( name = "id" ) int authorId, @RequestBody Author author ) {
+        this.authorService.updateAuthor( author );
     }
 }

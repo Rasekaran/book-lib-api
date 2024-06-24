@@ -29,4 +29,8 @@ public class AuthorService {
     public Author addAuthor( Author author ) {
         return this.authorRepository.saveAndFlush( author );
     }
+
+    public void updateAuthor( Author author ) {
+        this.authorRepository.updateAuthor( author.getId(), author.getFirstName(), author.getLastName() );
+    }
 }

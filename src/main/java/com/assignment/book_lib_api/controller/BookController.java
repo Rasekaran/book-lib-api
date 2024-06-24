@@ -41,4 +41,9 @@ public class BookController {
     public Book addBook( @RequestBody Book book ) {
         return this.bookService.addBook( book );
     }
+
+    @PutMapping("book/{id}")
+    public void updateBook( @PathVariable( name ="id" ) int id, @RequestBody Book book ) {
+        this.bookService.updateBook( book );
+    }
 }

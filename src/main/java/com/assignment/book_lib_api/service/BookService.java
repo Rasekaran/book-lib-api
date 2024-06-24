@@ -33,4 +33,8 @@ public class BookService {
     public Book addBook( Book book ) {
         return this.bookRepository.saveAndFlush( book );
     }
+
+    public void updateBook( Book book ) {
+        this.bookRepository.updateBook( book.getId(), book.getName(), book.getIsbn(), book.getAuthor().getId() );
+    }
 }
