@@ -31,10 +31,10 @@ export class BookDetailComponent implements OnInit, AfterViewInit, OnDestroy {
     // this.books = new BehaviorSubject([] as Book[]);
     this.subs = [];
     this.bookForm = this.formBuilder.group({
-      id: [ ''],
-      name: [ ''],
-      isbn: [ ''],
-      author: [ '']
+      id: [ ],
+      name: [ ],
+      isbn: [ ],
+      author: [ ]
     });
   }
   ngAfterViewInit(): void {
