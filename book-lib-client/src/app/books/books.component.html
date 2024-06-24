@@ -4,7 +4,7 @@
         <a>+ Add New</a>
     </div>
 </div>
-<mat-table class="lessons-table mat-elevation-z8" [dataSource]="( books | async ) || []">
+<mat-table class="lessons-table mat-elevation-z8" [dataSource]="( books | async )">
 
     <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
@@ -23,4 +23,13 @@
     <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
 
 </mat-table>
+<div class="paginator">
+    <mat-paginator
+        [length] = "totalNoOfBooks | async"
+        [pageIndex]="pageIndex | async"
+        [pageSize]="pageSize"
+        [showFirstLastButtons]="true"
+        (page)="onPageChange($event)">
+    </mat-paginator>
+</div>
 <!-- </div> -->

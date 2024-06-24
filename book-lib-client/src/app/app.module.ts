@@ -23,6 +23,7 @@ import { AuthorDetailEditComponent } from './author-detail-edit/author-detail-ed
 import { AuthorDetailNewComponent } from './author-detail-new/author-detail-new.component';
 import { AuthorDetailViewComponent } from './author-detail-view/author-detail-view.component';
 import { HomeComponent } from './home/home.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { HomeComponent } from './home/home.component';
     MatSelectModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatPaginatorModule,
     FormsModule
     // Import other modules here
   ],
