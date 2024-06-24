@@ -5,7 +5,7 @@ import { Book } from '../model/book';
 import { BookService } from '../service/book.svc';
 import { AuthorService } from '../service/author.svc';
 import { Author } from '../model/author';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-book-detail',
@@ -28,15 +28,18 @@ export class BookDetailComponent implements OnChanges {
   @Input()
   public buttonName: string;
 
+  @Input()
+  public validateForm: boolean = true;
+
   @Output()
   public onUpdate: EventEmitter<Book> = new EventEmitter();
 
   constructor( protected formBuilder: FormBuilder ) {
     this.bookForm = this.formBuilder.group({
       id: [ ],
-      name: [ ],
-      isbn: [ ],
-      author: [ ]
+      name: [ '', Validators.required ],
+      isbn: [ '', Validators.required ],
+      author: [ null, Validators.required ]
     });
     this.bookForm.controls.id.disable();
   }
@@ -52,7 +55,9 @@ export class BookDetailComponent implements OnChanges {
   }
 
   public onSubmit() {
-    const formValues = this.bookForm.getRawValue();
-    this.onUpdate.next( formValues );
+    if( !this.validateForm || this.bookForm.valid ) {
+      const formValues = this.bookForm.getRawValue();
+      this.onUpdate.next( formValues );
+    }
   }
 }

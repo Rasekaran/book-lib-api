@@ -8,11 +8,17 @@
         <mat-form-field appearance = "outline" floatLabel="always">
             <mat-label> Name </mat-label>
             <input matInput formControlName="name">
+            <mat-error *ngIf="bookForm.get('name').hasError('required')">
+                Name is required.
+            </mat-error>
         </mat-form-field>
         <br>
         <mat-form-field appearance = "outline" floatLabel="always">
             <mat-label> ISBN </mat-label>
             <input matInput formControlName="isbn">
+            <mat-error *ngIf="bookForm.get('isbn').hasError('required')">
+                ISBN is required.
+            </mat-error>
         </mat-form-field>
         <br>
         <mat-form-field appearance = "outline" floatLabel="always">
@@ -20,6 +26,9 @@
             <mat-select formControlName="author">
                 <mat-option *ngFor="let author of authors" [value] = "author.id"> {{author.firstName + ' ' + author.lastName}} </mat-option>
             </mat-select>
+            <mat-error *ngIf="bookForm.get('author').hasError('required')">
+                Author is required.
+              </mat-error>
         </mat-form-field>
         <br>
         <button *ngIf="buttonName" mat-raised-button type="submit" color="primary">{{buttonName}}</button>
