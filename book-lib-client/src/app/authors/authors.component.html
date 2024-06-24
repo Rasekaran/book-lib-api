@@ -1,0 +1,24 @@
+<div class="new-container">
+    <div class="new link" (click)="create()">
+        <a>+ Add New</a>
+    </div>
+</div>
+<mat-table class="lessons-table mat-elevation-z8" [dataSource]="( authors | async ) || []">
+
+    <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+        <mat-cell *matCellDef="let author">{{author.id}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell class="name-cell"
+                  *matCellDef="let author"><a class="link" (click)="viewAuthor( author.id )">{{author.firstName + " " + author.lastName}}</a></mat-cell>
+
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+</mat-table>

@@ -1,0 +1,9 @@
+<p>Author Details</p>
+<app-author-detail
+    [authorDetails] = "authorDetails | async"
+    [isEdit] = "false"
+    [buttonName] = "'Edit'"
+    [validateForm] = "false"
+    (onUpdate) = "onSubmit( $event )"
+>
+</app-author-detail>

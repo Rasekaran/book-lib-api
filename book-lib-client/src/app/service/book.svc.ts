@@ -7,9 +7,7 @@ import { Book } from "../model/book";
     providedIn: 'root'
 })
 export class BookService{
-    createBook(book: Book): Observable<Book> {
-      return this.restAPIService.post( 'book', book );
-    }
+    
     constructor( public restAPIService: RestAPIService ) {}
 
     public getBookDetails( id: number ): Observable<Book> {
@@ -17,6 +15,10 @@ export class BookService{
     }
 
     public updateBook( book: Book ) {
-        return this.restAPIService.put( 'book/', book );
+        return this.restAPIService.put( 'book/' + book.id, book );
+    }
+
+    public createBook(book: Book): Observable<Book> {
+        return this.restAPIService.post( 'book', book );
     }
 }

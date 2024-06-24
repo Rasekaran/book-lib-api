@@ -1,0 +1,26 @@
+<div>  
+    <form id="form" [formGroup]="authorForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance = "outline" floatLabel="always">
+        <mat-label> ID </mat-label>
+        <input matInput formControlName="id">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance = "outline" floatLabel="always">
+            <mat-label> First Name </mat-label>
+            <input matInput formControlName="fName">
+            <mat-error *ngIf="authorForm.get('fName').hasError('required')">
+                First Name is required.
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance = "outline" floatLabel="always">
+            <mat-label> Last Name </mat-label>
+            <input matInput formControlName="lName">
+            <mat-error *ngIf="authorForm.get('lName').hasError('required')">
+                Last Name is required.
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <button *ngIf="buttonName" mat-raised-button type="submit" color="primary">{{buttonName}}</button>
+    </form>
+  </div>  

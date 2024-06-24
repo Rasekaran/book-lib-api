@@ -7,10 +7,22 @@ import { Author } from "../model/author";
     providedIn: 'root'
 })
 export class AuthorService {
+
     constructor( public restAPIService: RestAPIService ) {}
 
     public getAuthors(): Observable<Author[]> {
         return this.restAPIService.get( 'authors' ) as Observable<Author[]>;
     }
 
+    public getAuthorDetails(id: number): Observable<Author> {
+        return this.restAPIService.get( 'author/'+ id ) as Observable<Author>;
+    }
+
+    public updateAuthor( author: Author ) {
+        return this.restAPIService.put( 'author/' + author.id, author );
+    }
+
+    public createAuthor( author: Author ): Observable<Author> {
+        return this.restAPIService.post( 'auhort', author );
+    }
 }

@@ -17,6 +17,12 @@ import { BookDetailViewComponent } from './book-detail-view/book-detail-view.com
 import { BookDetailEditComponent } from './book-detail-edit/book-detail-edit.component';
 import { MatButtonModule } from '@angular/material/button';
 import { BookDetailNewComponent } from './book-detail-new/book-detail-new.component';
+import { AuthorsComponent } from './authors/authors.component';
+import { AuthorDetailComponent } from './author-detail/author-detail.component';
+import { AuthorDetailEditComponent } from './author-detail-edit/author-detail-edit.component';
+import { AuthorDetailNewComponent } from './author-detail-new/author-detail-new.component';
+import { AuthorDetailViewComponent } from './author-detail-view/author-detail-view.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +31,13 @@ import { BookDetailNewComponent } from './book-detail-new/book-detail-new.compon
     BookDetailComponent,
     BookDetailViewComponent,
     BookDetailEditComponent,
-    BookDetailNewComponent
+    BookDetailNewComponent,
+    AuthorsComponent,
+    AuthorDetailComponent,
+    AuthorDetailEditComponent,
+    AuthorDetailNewComponent,
+    AuthorDetailViewComponent,
+    HomeComponent
     // Add other components, directives, pipes here
   ],
   imports: [
